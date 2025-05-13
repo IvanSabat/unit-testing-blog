@@ -1,7 +1,13 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('/', PostController::class)->names([
+    'index'  => 'posts.index',
+    'create' => 'posts.create',
+    'store'  => 'posts.store',
+    'show'   => 'posts.show',
+]);
+
+//Route::resource('posts', PostController::class);
